@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>総合文字変換ツール</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="ひらがな/カタカナ・半角/全角を相互変換できるPWAツール">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#3b82f6">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="converter">
+    <h1>総合 文字変換ツール <small class="ver" aria-label="バージョン">v1.0.0</small></h1>
+
+    <textarea id="input" placeholder="ここに文字を入力…" aria-label="入力テキスト"></textarea>
+
+    <div class="buttons" role="group" aria-label="変換ボタン">
+      <button id="hiraToKata">ひらがな → カタカナ</button>
+      <button id="kataToHira">カタカナ → ひらがな</button>
+      <button id="toZenkaku">半角 → 全角</button>
+      <button id="toHankaku">全角 → 半角</button>
+      <button id="auto">自動判定</button>
+    </div>
+
+    <div class="buttons" role="group" aria-label="操作ボタン">
+      <button id="swap">入れ替え</button>
+      <button id="clear">クリア</button>
+      <button id="copy">結果をコピー</button>
+    </div>
+
+    <textarea id="output" placeholder="結果" aria-label="出力テキスト" readonly></textarea>
+
+    <label class="live">
+      <input type="checkbox" id="live" checked>
+      入力中に自動変換（自動判定）
+    </label>
+
+    <p class="note">オフラインでも利用可能 / ホーム画面に追加できます。</p>
+  </div>
+  <script src="script.js" defer></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('service-worker.js');
+      });
+    }
+  </script>
+</body>
+</html>

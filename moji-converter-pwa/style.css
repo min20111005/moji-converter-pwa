@@ -1,0 +1,130 @@
+/* 基本レイアウト */
+:root {
+  color-scheme: dark;
+}
+body {
+  font-family: system-ui, -apple-system, "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+  background:#1e1f26;
+  color:#fff;
+  margin:0;
+  padding:calc(env(safe-area-inset-top,0) + 1rem) 1rem calc(env(safe-area-inset-bottom,0) + 1rem);
+  -webkit-font-smoothing: antialiased;
+}
+h1 {
+  font-size:1.25rem;
+  margin:0 0 .6rem;
+  text-align:center;
+  font-weight:600;
+  letter-spacing:.5px;
+}
+h1 .ver {
+  font-size:.65rem;
+  font-weight:400;
+  opacity:.6;
+  margin-left:.4rem;
+}
+.converter {
+  max-width:960px;
+  margin:auto;
+  background:#2a2c37;
+  border:1px solid #3c3f4d;
+  border-radius:16px;
+  padding:1rem 1.2rem 1.4rem;
+  box-shadow:0 8px 28px -8px #000a;
+  box-sizing:border-box;
+}
+textarea {
+  width:100%;
+  min-height:150px;
+  resize:vertical;
+  padding:.8rem .9rem;
+  box-sizing:border-box;
+  background:#15171d;
+  color:#f4f6fa;
+  border:1px solid #3b3f4c;
+  border-radius:10px;
+  font-size:16px;
+  line-height:1.55;
+  letter-spacing:.5px;
+  transition:.2s;
+}
+textarea:focus {
+  border-color:#5d9bff;
+  box-shadow:0 0 0 2px #5d9bff55;
+  outline:none;
+}
+.buttons {
+  display:flex;
+  flex-wrap:wrap;
+  gap:.55rem;
+  margin:.8rem 0;
+  justify-content:center;
+}
+button {
+  flex:1 1 auto;
+  min-width:120px;
+  cursor:pointer;
+  background:#3b82f6;
+  border:none;
+  color:#fff;
+  padding:.65rem .9rem;
+  font-size:.85rem;
+  font-weight:500;
+  border-radius:8px;
+  letter-spacing:.5px;
+  transition:.15s;
+  position:relative;
+  touch-action:manipulation;
+}
+button:hover { filter:brightness(1.18); }
+button:active { transform:scale(.95); }
+button:focus-visible {
+  outline:2px solid #fff;
+  outline-offset:2px;
+}
+.live {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:.45rem;
+  font-size:.8rem;
+  margin-top:.4rem;
+  user-select:none;
+}
+.note {
+  text-align:center;
+  font-size:.65rem;
+  opacity:.55;
+  margin-top:.8rem;
+  line-height:1.4;
+}
+
+/* スクロールバー(対応ブラウザ) */
+textarea::-webkit-scrollbar {
+  width:10px;
+}
+textarea::-webkit-scrollbar-track {
+  background:#1b1d23;
+  border-radius:8px;
+}
+textarea::-webkit-scrollbar-thumb {
+  background:#3f4655;
+  border-radius:8px;
+}
+textarea::-webkit-scrollbar-thumb:hover {
+  background:#4d5669;
+}
+
+/* スマホ最適化 */
+@media (max-width:640px) {
+  h1 { font-size:1.05rem; }
+  button {
+    min-width:100px;
+    font-size:.75rem;
+    padding:.55rem .6rem;
+  }
+  textarea {
+    font-size:15px;
+    min-height:135px;
+  }
+}
